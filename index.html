@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Title-->
+    <title>Cari informasi </title>
+    <!-- viewport scale-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+    <!-- Favicon and Apple Icons-->
+    <link rel="icon" type="image/x-icon" href="https://smkinformatikacbi.sch.id/images/kc.png">
+    <link rel="shortcut icon" href="https://smkinformatikacbi.sch.id/images/kc.png">
+    <link rel="apple-touch-icon-precomposed" href="https://smkinformatikacbi.sch.id/images/kc.png">
+
+
+    <!--Google fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700%7CWork+Sans:400,500">
+
+
+    <!-- Icon fonts -->
+    <link rel="stylesheet" href="https://smkinformatikacbi.sch.id/assets/fonts/fontawesome/css/all.css">
+    <link rel="stylesheet" href="https://smkinformatikacbi.sch.id/assets/fonts/themify-icons/css/themify-icons.css">
+
+
+    <!-- stylesheet-->
+    <link rel="stylesheet" href="https://smkinformatikacbi.sch.id/assets/css/vendors.bundle.css">
+    <link rel="stylesheet" href="https://smkinformatikacbi.sch.id/assets/css/style.css">
+
+</head><!-- datatable -->
+<link rel="stylesheet" href="https://smkinformatikacbi.sch.id/assets/portal/plugins/datatables/dataTables.bootstrap4.css">
+<link rel="stylesheet" href="https://smkinformatikacbi.sch.id/assets/portal/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css" rel="stylesheet">
+
+<body>
+  <nav class="ec-nav sticky-top bg-info bg-danger">
+  <div class="container">
+    <div class="navbar p-0 navbar-expand-lg">
+      <div class="navbar-brand">
+        <a class="logo-default" href=""></a> Lihat data</a>
+      </div>
+   
+
+       
+      </div> <!-- END container-->
+</nav> <!-- END ec-nav -->
+  <section class="padding-y-100 bg-light-v4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 text-center">
+          <h2 class="text-danger">
+            Lihat data siswa lengkap
+          </h2>
+          <div class="width-4rem height-4  rounded mt-4 marginBottom-40 mx-auto bg-danger">
+
+          </div>
+         
+        </div>
+        <div class="col-lg-12 col-md-12 marginTop-30 wow fadeInUp" data-wow-delay=".1s">
+          <div class="card height-100p text-center p-4 p-md-5 transition hover:shadow-v3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Nomor Induk Siswa</span>
+              </div>
+              <input type="text" aria-label="Masukkan Nomor Induk Siswa" class="text-danger form-control" id="no_induk">
+              <div class="input-group-append">
+                <button type="button" class="btn btn-outline-danger" onclick="tampil()"><i class="fas fa-search"></i> Tampilkan</button>
+              </div>
+            </div>
+            <div class="mt-3" id="kehadiran" style="text-align: left;">
+              <div class="row">
+                <div class="card">
+                  <div class="row no-gutters">
+                    <div class="col-md-3">
+                      <img id="foto" src="" class="card-img mx-auto">
+                    </div>
+                    <div class="col-md">
+                      <div class="card-body">
+                        <h3 class="mb-3" id="nama_siswa"></h3>
+                        <div class="table-responsive">
+                          <table class="table">
+                            <tr>
+                              <td>Nomor handphone</td>
+                              <td><span id="nohp"></span></td>
+                            </tr>
+                            <tr>
+                              <td>Email</td>
+                              <td><span id="emails"></span></td>
+                            </tr>
+                            <tr>
+                              <td>N I S N</td>
+                              <td><span id="nisn"></span></td>
+                            </tr>
+                            <tr>
+                              <td>Password enkripsi</td>
+                              <td><span id="pssw"></span></td>
+                            </tr>
+                            <tr>
+                              <td>Kelas</td>
+                              <td><span id="kelas"></span></td>
+                            </tr>
+
+            <tr>
+              <td>Jenis Kelamin</td>
+              <td><span id="kelamin"></span></td>
+            </tr>
+            <tr>
+              <td>Agama</td>
+              <td><span id="agama"></span></td>
+            </tr>
+            <tr>
+              <td>Tempat, Tgl. Lahir
+              </td>
+              <td><span id="tempat"></span></td>
+            </tr>
+            <tr>
+              <td>Alamat
+              </td>
+              <td><span id="alamat"></span></td>
+            </tr>
+           <tr>
+             <td><h3>Biodata ayah</h3></td>
+           </tr>
+           <tr><td>Nama ayah</td>
+            <td colspan="2"><span id="nayah"></span></td>
+          </tr>
+        </tr>
+        <tr><td>Pekerjaan</td>
+         <td colspan="2"><span id="pekerayah"></span></td>
+       </tr>
+      </tr>
+      <tr><td>Penghasilan</td>
+       <td colspan="2"><span id="pengayah"></span></td>
+     </tr>
+    </tr>
+    <tr><td>No telpon</td>
+     <td colspan="2"><span id="noayah"></span></td>
+   </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <tr>
+   <td>Total Pertemuan</td>
+   <td><span id="pertemuan">
+     
+   </span>
+   </td>
+                            </tr>
+             
+                            <tr>
+                              <td>Absensi</td>
+                              <td>
+                                <table>
+                                  <tr>
+                                    <td>Hadir</td>
+                                    <td>Sakit</td>
+                                    <td>Izin</td>
+                                    <td>Alpa</td>
+                                  </tr>
+                                  <tr>
+                                    <td><span id="hadir"></span></td>
+                                    <td><span id="sakit"></span></td>
+                                    <td><span id="izin"></span></td>
+                                    <td><span id="alpa"></span></td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="table-responsive mt-3">
+                <table id="table" class="display nowrap table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+                  <thead>
+                    <tr style="color:white; background: rgb(100, 162, 255);">
+                      <th style="vertical-align:middle">#</th>
+                      <th style="vertical-align:middle">Tanggal</th>
+                      <th style="vertical-align:middle">Jam</th>
+                      <th style="vertical-align:middle">Mata Pelajaran</th>
+                      <th style="vertical-align:middle">Kehadiran</th>
+                      <th style="vertical-align:middle">Waktu Absen</th>
+                      <th style="vertical-align:middle">Pengabsen</th>
+                      <th style="vertical-align:middle">Lokasi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="mt-3" id="keuangan">
+              informasi keuangan
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- END row-->
+    </div> <!-- END container-->
+  </section>
+
+   <!-- END site-footer -->
+  <div class="scroll-top">
+    <i class="ti-angle-up"></i>
+  </div>
+
+  <script src="https://smkinformatikacbi.sch.id/assets/js/vendors.bundle.js"></script>
+  <script src="https://smkinformatikacbi.sch.id/assets/js/scripts.js"></script>
+  <!-- DataTables -->
+  <script src="https://smkinformatikacbi.sch.id/assets/portal/plugins/datatables/jquery.dataTables.js"></script>
+  <script src="https://smkinformatikacbi.sch.id/assets/portal/plugins/datatables/dataTables.bootstrap4.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#kehadiran").hide();
+      $("#keuangan").hide();
+    });
+
+    function tampil() {
+
+      $("#kehadiran").show();
+      let no_induk = $("#no_induk").val();
+
+      $.ajax({
+        url: "https://smkinformatikacbi.sch.id/web/ortu/ajax_edit/" + no_induk,
+        type: "GET",
+        dataType: "JSON",
+        success: function(dataSiswa) {
+          $("#nama_siswa").text(dataSiswa.siswa.nama);
+          $("#nohp").text(dataSiswa.siswa.hp);
+          $("#emails").text(dataSiswa.siswa.mail);
+          $("#nisn").text(dataSiswa.siswa.nisn);
+          $("#pssw").text(dataSiswa.siswa.password);
+          $("#kelas").text(dataSiswa.siswa.kelas);
+          $("#kelamin").text(dataSiswa.siswa.kelamin == 0 ? "Perempuan" : "Laki-laki");
+          $("#agama").text(dataSiswa.siswa.agama_str);
+          $("#tempat").text(dataSiswa.siswa.pob+" "+dataSiswa.siswa.dob);
+          $("#alamat").text(dataSiswa.siswa.alamat+" Rt."+dataSiswa.siswa.rt+"/"+dataSiswa.siswa.rw+" "+dataSiswa.siswa.dusun+" "+dataSiswa.siswa.nama_kec+" "+dataSiswa.siswa.nama_kab+" "+dataSiswa.siswa.nama_prov);
+              // biodata ayah
+          $("#nayah").text(dataSiswa.siswa.nama_ayah);
+          $("#pekerayah").text(dataSiswa.siswa.pek_ayah);
+          $("#pengayah").text(dataSiswa.siswa.penghasilan_ayah);
+
+
+
+
+
+
+
+
+
+
+
+          $("#foto").attr("src", "https://smkinformatikacbi.sch.id/images/siswa/" + dataSiswa.siswa.foto);
+          
+           
+          console.log(dataSiswa)
+          
+          $("#pertemuan").text(dataSiswa.pertemuan);
+          $("#hadir").text(dataSiswa.hadir);
+          $("#sakit").text(dataSiswa.sakit);
+          $("#izin").text(dataSiswa.izin);
+          $("#alpa").text(dataSiswa.alpa);
+        }
+      });
+
+      $('#table').DataTable().destroy();
+      $('#table').DataTable({
+
+        "processing": true, //Feature control the processing indicator.
+        "serverSide": true, //Feature control DataTables' server-side processing mode.
+        "order": [], //Initial no order.
+        "paging": true,
+        "language": {
+          "url": "https://smkinformatikacbi.sch.id/assets/vendor/datatables/bahasa.json"
+        },
+        // Load data for the table's content from an Ajax source
+        "ajax": {
+          "url": "https://smkinformatikacbi.sch.id/web/ortu/ajax_list/" + no_induk,
+          "type": "POST",
+          "error": function(jqXHR, textStatus, errorThrown) {
+            alert('Data tidak ditemukan , pastikan nomor induk yang anda masukan benar');
+            $('#table').DataTable().destroy();
+          $("#kehadiran").hide();
+            $("#keuangan").hide();
+            
+          }
+        },
+        //Set column definition initialisation properties.
+        "columnDefs": [{
+            "width": "15%",
+            "targets": -1
+          },
+          {
+            "className": 'control',
+            "orderable": false,
+            "targets": 0
+          },
+          {
+            "orderable": false,
+            "targets": [-1]
+          },
+          {
+            "className": 'text-left',
+          }
+        ],
+
+      });
+   
+    }
+  </script>
+</body>
+
+</html>
